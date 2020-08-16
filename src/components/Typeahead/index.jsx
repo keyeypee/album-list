@@ -46,12 +46,9 @@ const Typeahead = ({ placeholder, valueKey, labelKey, onSelect }) => {
   if (showList) {
     if (filterOptions.length) {
       optionList = (
-        <UL className="options">
+        <UL>
           {filterOptions.map((item, index) => {
             let className;
-            // if (index === activeOption) {
-            //   className = "option-active";
-            // }
             return (
               <Li className={className} key={item[valueKey]} onClick={onClick}>
                 {item[labelKey]}
@@ -61,7 +58,7 @@ const Typeahead = ({ placeholder, valueKey, labelKey, onSelect }) => {
         </UL>
       );
     } else {
-      optionList = <NoOptions className="no-options">No Option!</NoOptions>;
+      optionList = <NoOptions>No Option!</NoOptions>;
     }
   }
 
@@ -69,7 +66,7 @@ const Typeahead = ({ placeholder, valueKey, labelKey, onSelect }) => {
     <Container>
       <SearchBox
         type="text"
-        onChange={debounce(onSetFilters, 300)}
+        onChange={debounce(onSetFilters, 400)}
         ref={inputRef}
         placeholder={placeholder}
       />
